@@ -14,8 +14,15 @@ mongoose.connection.on('error', function(err) {
 
 require('./configs/passport');
 
+var auth = require('./middleware/auth.middleware');
+
+
 var adminRouter = require('./routers/admin.router');
+
+var bookingRouter = require('./routers/booking.router');
+
 var userRouter = require('./routers/user.router');
+
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -39,23 +46,10 @@ app.use(express.static('public'));
 app.use('/admin', adminRouter);
 app.use('/user', userRouter); // cấu hình mấy trang liên quan user
 
-
-app.get('/', checkAuthentication, function (req, res) {
-
+app.get('/', auth.checkAuthentication, function (req, res) {
     console.log(req.user)
     res.render('client/home');
 })
-
-
-function checkAuthentication(req,res,next){
-    if(req.isAuthenticated()){
-        //req.isAuthenticated() will return true if user is logged in
-        next();
-    } else{
-        res.redirect("user/login");
-    }
-}
-
 
 // Trả lỗi 404 k tồn tại trang!!!!!
 app.use(function (req, res, next) {
