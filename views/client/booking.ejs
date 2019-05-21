@@ -1,39 +1,135 @@
 <%- include('./layouts/head',
 {title: 'Booking'}
 ) %>
-
-<body>
-<h1>Day la trang booking</h1>
-
-<div class="container">
-    <div>Chọn bác sĩ:</div>
-    <div class="row p-5">
-        <div class="col-2 doctor-item ">a</div>
-        <div class="col-2 doctor-item ">b</div>
-        <div class="col-2 doctor-item ">c</div>
-        <div class="col-2 doctor-item ">d</div>
-        <div class="col-2 doctor-item ">e</div>
-        <div class="col-2 doctor-item ">f</div>
+<%- include('./layouts/header',
+) %>
+<!-- Banner Area Starts -->
+<section class="banner-area other-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Booking</h1>
+                <a href="index.html">Home</a> <span>|</span> <a href="about.html">About Us</a>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-4 time-item ">7:00-9:00</div>
-        <div class="col-4 time-item ">1:00-3:00</div>
-        <div class="col-4 time-item ">1:00-3:00</div>
-        <div class="col-4 time-item ">3:00-5:00</div>
-        <div class="col-4 time-item ">5:00-7:00</div>
-        <div class="col-4  time-item ">7:00-9:00</div>
-        <form method="post" action="/booking/send">
-            <label>
-                <input type="text" id="doctorValue" value="" name="doctorId">
-            </label>
-            <label>
-                <input type="text" id="timeValue" value="" name="time">
-            </label>
-            <button type="submit" id="btn-submit">Go</button>
-        </form>
+</section>
+<!-- Banner Area End -->
+<section class="contact-form section-padding">
+    <form action="" method="post" action="/booking/send">
+        <div class="container">
+            <h3>Doctor</h3>
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-item">
+                    <div class="doctor-img">
+                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="content-area">
+                        <div class="doctor-name text-center">
+                            <h3>ethel davis</h3>
+                            <h6>sr. faculty data science</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-</div>
+            <!--<div class="customNavigation">-->
+            <!--<a class="btn hehe">Previous</a>-->
+            <!--<a class="btn hihi">Next</a>-->
+            <!--<a class="btn play">Autoplay</a>-->
+            <!--<a class="btn stop">Stop</a>-->
+            <!--</div>-->
+            <h3>Time</h3>
+            <div class="row">
+                <div class="time-item genric-btn danger-border radius">7:00-9:00</div>
+                <div class="time-item genric-btn danger-border radius">1:00-3:00</div>
+                <div class="time-item genric-btn danger-border radius">1:00-3:00</div>
+                <div class="time-item genric-btn danger-border radius">3:00-5:00</div>
+                <div class="time-item genric-btn danger-border radius">5:00-7:00</div>
+                <div class="time-item genric-btn danger-border radius">7:00-9:00</div>
+            </div>
+            <button type="submit" class="template-btn">Book</button>
+        </div>
+    </form>
+</section>
+
 <script>
     $('.time-item').click(function () {
         var value = $(this).text();
@@ -43,6 +139,29 @@
         var value = $(this).text();
         $('#doctorValue').val(value);
     });
+    var owl = $("#owl-demo");
+
+    owl.owlCarousel({
+        items: 4, //10 items above 1000px browser width
+        itemsDesktop: [1000, 4], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+        itemsTablet: [600, 1], //2 items between 600 and 0
+        itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
+    });
+
+    // // Custom Navigation Events
+    // $(".hehe").click(function(){
+    //     owl.trigger('owl.next');
+    // })
+    // $(".hihi").click(function(){
+    //     owl.trigger('owl.prev');
+    // })
+    // $(".play").click(function(){
+    //     owl.trigger('owl.play',1000); //owl.play event accept autoPlay speed as second parameter
+    // })
+    // $(".stop").click(function(){
+    //     owl.trigger('owl.stop');
+    // })
 </script>
-</body>
-</html>
+<%- include('./layouts/footer',
+) %>
