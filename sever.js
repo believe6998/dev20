@@ -7,7 +7,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
 
-mongoose.connect('mongodb://test:123abcd@ds163014.mlab.com:63014/mydb', { useNewUrlParser: true });
+mongoose.connect('mongodb://admin:admin123@ds157946.mlab.com:57946/dev20', {useNewUrlParser: true});
 mongoose.connection.on('error', function(err) {
     console.log('Lỗi kết nối đến CSDL: ' + err);
 });
@@ -46,10 +46,7 @@ app.use(express.static('public'));
 app.use('/admin', adminRouter);
 app.use('/user', userRouter); // cấu hình mấy trang liên quan user
 
-app.get('/', auth.checkAuthentication, function (req, res) {
-    console.log(req.user)
-    res.render('client/home');
-})
+app.use('/', auth.checkAuthentication, bookingRouter);
 
 // Trả lỗi 404 k tồn tại trang!!!!!
 app.use(function (req, res, next) {
