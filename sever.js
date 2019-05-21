@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 // mongoose.connect('mongodb://chailo:chailo123@ds163014.mlab.com:63014/mydb', { useNewUrlParser: true });
 
 var adminRouter = require('./routers/admin.router');
+var userRouter = require('./routers/user.router');
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.use('/admin', adminRouter);
+app.use('/user', userRouter); // cấu hình mấy trang liên quan user
 
 
 app.get('/', function (req, res) {
