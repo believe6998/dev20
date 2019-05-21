@@ -18,12 +18,12 @@
                     </div>  
                     <div class="panel-body">
                      <% if(hasErrors) { %>
-    <div class="alert alert-danger">
-       <% messages.forEach(function(message){ %>
-          <span><%=  message %></span>
-       <% })%>    
-    </div>
- <% } %>
+                        <div class="alert alert-danger">
+                        <% messages.forEach(function(message){ %>
+                            <span><%=  message %></span>
+                            <% })%>    
+                        </div>
+                    <% } %>
                         <form role="form" action="/user/register" method="post">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">

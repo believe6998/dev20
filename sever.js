@@ -43,10 +43,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 
-app.use('/admin', adminRouter);
-app.use('/user', userRouter); // cấu hình mấy trang liên quan user
+app.use('/admin',auth.checkIsAdmin, adminRouter);
+app.use('/user', userRouter); // cấu hình mấy trang liên quan use
 
 app.use('/', auth.checkAuthentication, bookingRouter);
+app.use('/', auth.checkAuthentication, function(req,res){
+    res.render('client/home')
+});
 app.use('/', auth.checkAuthentication, function(req,res){
     res.render('client/home')
 });
