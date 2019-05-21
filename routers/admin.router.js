@@ -7,4 +7,6 @@ router.get('/', function(req, res){
     res.render('admin/home');
 })
 
+
+
 module.exports = router;

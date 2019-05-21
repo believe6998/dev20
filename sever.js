@@ -1,11 +1,12 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose'); 
+const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://chailo:chailo123@ds163014.mlab.com:63014/mydb', { useNewUrlParser: true });
+mongoose.connect('mongodb://admin:admin123@ds157946.mlab.com:57946/dev20', {useNewUrlParser: true});
 
 var adminRouter = require('./routers/admin.router');
+var bookingRouter = require('./routers/booking.router');
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -18,10 +19,7 @@ app.use(express.static('public'));
 
 app.use('/admin', adminRouter);
 
-
-app.get('/', function (req, res) {
-    res.render('client/home');
-})
+app.use('/', bookingRouter);
 
 
 // Trả lỗi 404 k tồn tại trang!!!!!

@@ -1,0 +1,57 @@
+<%- include('./layouts/head',
+{title: 'Booking'}
+) %>
+
+<body>
+<h1>Day la trang booking</h1>
+
+<div class="container">
+    <div>Chọn bác sĩ:</div>
+    <div class="row p-5">
+        <div class="col-2 doctor-item ">a</div>
+        <div class="col-2 doctor-item ">b</div>
+        <div class="col-2 doctor-item ">c</div>
+        <div class="col-2 doctor-item ">d</div>
+        <div class="col-2 doctor-item ">e</div>
+        <div class="col-2 doctor-item ">f</div>
+    </div>
+    <div class="row">
+        <div class="col-4 time-item ">7:00-9:00</div>
+        <div class="col-4 time-item ">1:00-3:00</div>
+        <div class="col-4 time-item ">1:00-3:00</div>
+        <div class="col-4 time-item ">3:00-5:00</div>
+        <div class="col-4 time-item ">5:00-7:00</div>
+        <div class="col-4  time-item ">7:00-9:00</div>
+        <form method="post" action="/booking/send">
+            <label>
+                <input type="text" id="doctorValue" value="" name="doctorId">
+            </label>
+            <label>
+                <input type="text" id="timeValue" value="" name="time">
+            </label>
+            <button type="submit" id="btn-submit">Go</button>
+        </form>
+
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    $('.time-item').click(function () {
+        var value = $(this).text();
+        $('#timeValue').val(value);
+    });
+    $('.doctor-item').click(function () {
+        var value = $(this).text();
+        $('#doctorValue').val(value);
+    });
+</script>
+</html>
