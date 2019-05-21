@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt')
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
+    doctor:{
+        specialties: String,
+        desciption: String
+    },
     info: {
         firstname: String,
         lastname: String,
@@ -31,12 +35,15 @@ var userSchema = new Schema({
         },
         password: {
             type: String
-        },
-        isAdmin: {
-            type: Boolean,
-            default: false
         }
-
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    isDoctor: {
+        type: Boolean,
+        default: false
     }
 });
 

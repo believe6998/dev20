@@ -2,6 +2,7 @@
 module.exports = {
     checkAuthentication: function (req, res, next){
         if(req.isAuthenticated()){
+            console.log(req.user)
             //req.isAuthenticated() will return true if user is logged in
             next();
         } else{
@@ -12,7 +13,7 @@ module.exports = {
         if(req.isAuthenticated() && req.user.local.isAdmin){
             next();
         } else{
-            res.send("Không có quyền truy cập ! thêm isAdmin = true trong db để test nhá @@");
+            res.render("errHandle/403Err.ejs");
         }
     }
 }

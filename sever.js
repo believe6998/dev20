@@ -18,10 +18,9 @@ var auth = require('./middleware/auth.middleware');
 
 
 var adminRouter = require('./routers/admin.router');
-
 var bookingRouter = require('./routers/booking.router');
-
 var userRouter = require('./routers/user.router');
+var otherrRouter = require('./routers/other.router');
 
 
 const app = express();
@@ -44,20 +43,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 
-app.use('/admin', auth.checkIsAdmin, adminRouter);
-app.use('/user', userRouter); // cấu hình mấy trang liên quan use
+app.use('/admin/', auth.checkIsAdmin, adminRouter);
+app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
+app.use(otherrRouter);
 
-app.use('/', auth.checkAuthentication, bookingRouter);
-app.use('/', auth.checkAuthentication, function(req,res){
-    res.render('client/home')
-});
-app.use('/', auth.checkAuthentication, function(req,res){
-    res.render('client/home')
-});
+// app.use('/', auth.checkAuthentication, bookingRouter);
+// app.use('/', auth.checkAuthentication, function(req,res){
+//     res.render('client/home')
+// });
 
 // Trả lỗi 404 k tồn tại trang!!!!!
 app.use(function (req, res, next) {
-    var err = new Error('Lỗi 404 ! Éo tìm đc trang!');
+    var err = new Error('errHandle/404Err.ejs');
     err.status = 404;
     next(err);
 });
@@ -65,7 +62,7 @@ app.use(function (req, res, next) {
 // Trả lỗi 500
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    res.send(err.message);
+    res.render(err.message);
 });
 
 
