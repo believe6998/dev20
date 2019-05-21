@@ -10,3 +10,9 @@
     text-align: center;
     cursor: pointer;
 }
+.form-area input {
+    width: 100%;
+    border: 1px solid #f9f9f9;
+    padding: 12px 20px;
+    margin-bottom: 20px
+}

@@ -1,66 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Framgia_tuts</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
+<%- include('./layouts/head',
+{title: 'Home Page'}
+) %>
+<%- include('./layouts/header',
+) %>
+<section class="banner-area">
     <div class="container">
-	<div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Register</h3>
-                    </div>  
-                    <div class="panel-body">
-                     <% if(hasErrors) { %>
-    <div class="alert alert-danger">
-       <% messages.forEach(function(message){ %>
-          <span><%=  message %></span>
-       <% })%>    
-    </div>
- <% } %>
-                        <form role="form" action="/user/register" method="post">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="firstname" id="firstname" value="<%= dataForm.firstname %>" class="form-control input-sm" placeholder="First Name">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="lastname" id="lastname" value="<%= dataForm.lastname %>" class="form-control input-sm" placeholder="Last Name">
-                                    </div>
-                                </div>
-                            </div>
-	
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" value="<%= dataForm.email %>" class="form-control input-sm" placeholder="Email Address">
-                            </div>
-	
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                    </div>
-                                </div>
-                            </div>
-								
-                            <input type="submit" value="Register" class="btn btn-info btn-block">			    		
-                        </form>
-                    </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <h4>Caring for better life</h4>
+                <h1>Leading the way in medical excellence</h1>
+                <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning over gathered brought.</p>
+                <a href="" class="template-btn mt-3">take appointment</a>
+            </div>
+            <div class="contact-form form-area">
+                <h2 class="panel-title">Register</h2>
+                <div class="">
+                    <% if(hasErrors) { %>
+                        <div class="alert alert-danger">
+                            <% messages.forEach(function(message){ %>
+                                <span><%=  message %></span>
+                            <% })%>
+                        </div>
+                    <% } %>
+                    <form role="form" action="/user/register" method="post">
+                        <div class="left">
+                            <input name="firstname" id="firstname" value="<%= dataForm.firstname %>" type="text" placeholder="First name"  required>
+                        </div>
+                        <div class="right">
+                            <input type="text" name="lastname" id="lastname" value="<%= dataForm.lastname %>" class="" placeholder="Last Name">
+
+                        </div>
+                        <input type="email" name="email" id="email" value="<%= dataForm.email %>" class="" placeholder="Email Address">
+                        <div class="left">
+                            <input type="password" name="password" id="password" class="" placeholder="Password">
+
+                        </div>
+                        <div class="right">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="" placeholder="Confirm Password">
+
+                        </div>
+                        <button type="submit" class="template-btn">Register</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</section>
+    <div class="container">
+
+    </div>
+<%- include('./layouts/footer',
+) %>
