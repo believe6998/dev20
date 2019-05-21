@@ -1,10 +1,12 @@
 .time-item{
-    border: 1px solid black;
+    margin: 20px;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
 }
 .doctor-item{
-    border: 1px solid black;
+    margin: 10px;
+    border: 1px solid white;
     text-align: center;
     cursor: pointer;
 }
