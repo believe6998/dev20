@@ -71,7 +71,7 @@ input:focus, textarea:focus {
     width: 40px;
     height: 40px;
     margin: 100px auto;
-    background-color: #ff0066;
+    background-color: #ff0000;
     border-radius: 100%;
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out
@@ -226,7 +226,7 @@ input:focus, textarea:focus {
 }
 
 .nav-menu ul li:hover > a {
-    color: #ff0066
+    color: #ff0000
 }
 
 .nav-menu ul ul {
@@ -248,7 +248,7 @@ input:focus, textarea:focus {
 }
 
 #mobile-nav-toggle i {
-    color: #ff0066;
+    color: #ff0000;
     font-weight: 900
 }
 
@@ -317,7 +317,7 @@ input:focus, textarea:focus {
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-    color: #ff0066
+    color: #ff0000
 }
 
 #mobile-nav ul .menu-has-children li a {
@@ -325,7 +325,7 @@ input:focus, textarea:focus {
 }
 
 #mobile-nav ul .menu-item-active {
-    color: #ff0066
+    color: #ff0000
 }
 
 #mobile-body-overly {
@@ -408,7 +408,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .header-top .social-links ul li a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 #header {
@@ -463,7 +463,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #header #logo h1 a, #header #logo h1 a:hover {
     color: #fff;
     padding-left: 10px;
-    border-left: 4px solid #ff0066
+    border-left: 4px solid #ff0000
 }
 
 #header #logo img {
@@ -677,7 +677,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .department-slider.owl-carousel .owl-dots .owl-dot.active {
-    background: #ff0066
+    background: #ff0000
 }
 
 .patient-area .single-patient {
@@ -793,7 +793,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .specialist-area .single-doctor:hover .doctor-name {
-    background: linear-gradient(to right, #ff0066, #15e4fd)
+    background: linear-gradient(to right, #ff0000, #15e4fd)
 }
 
 .specialist-area .single-doctor:hover .doctor-name h3, .specialist-area .single-doctor:hover .doctor-name h6 {
@@ -850,7 +850,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .specialist-area .doctor-icon li a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .hotline-area {
@@ -898,7 +898,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .news-area .news-date {
     color: #fff;
-    background: #ff0066;
+    background: #ff0000;
     padding: 12px 30px;
     display: inline-block;
     position: relative;
@@ -921,7 +921,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .news-area .single-news:hover h3 a {
-    color: #ff0066
+    color: #ff0000
 }
 
 .footer-area {
@@ -943,7 +943,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .footer-area input {
@@ -996,7 +996,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-copyright .color {
-    color: #ff0066
+    color: #ff0000
 }
 
 .footer-copyright ul {
@@ -1039,7 +1039,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .footer-copyright ul li i:hover {
     color: #fff;
-    background: linear-gradient(to right, #ff0066, #15e4fd)
+    background: linear-gradient(to right, #ff0000, #15e4fd)
 }
 
 .banner-area.other-page {
@@ -1067,7 +1067,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area.other-page a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_categorie_area {
@@ -1150,11 +1150,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_info .post_tag a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_info .post_tag a.active {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_info .blog_meta li a {
@@ -1175,7 +1175,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_info .blog_meta li a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_post img {
@@ -1195,7 +1195,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_details h4:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_details p {
@@ -1210,7 +1210,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .blog_details .template-btn:hover {
     color: #fff !important;
-    background: linear-gradient(to right, #ff0066, #15e4fd)
+    background: linear-gradient(to right, #ff0000, #15e4fd)
 }
 
 .blog_right_sidebar {
@@ -1222,7 +1222,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .blog_right_sidebar .widget_title {
     font-size: 18px;
     line-height: 25px;
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     text-align: center;
     color: #fff;
     padding: 8px 0px;
@@ -1239,7 +1239,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding-left: 20px;
     border-radius: 45px;
     z-index: 0;
-    background: linear-gradient(to right, #ff0066, #15e4fd)
+    background: linear-gradient(to right, #ff0000, #15e4fd)
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control:focus {
@@ -1290,7 +1290,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_right_sidebar .author_widget .social_icon a:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body {
@@ -1307,7 +1307,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body h5:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
@@ -1341,11 +1341,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li:hover {
-    border-color: #ff0066
+    border-color: #ff0000
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li:hover a {
-    color: #ff0066
+    color: #ff0000
 }
 
 .blog_right_sidebar .newsletter_widget {
@@ -1387,7 +1387,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .blog_right_sidebar .newsletter_widget .bbtns {
     color: #fff;
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     font-size: 12px;
     line-height: 38px;
     display: inline-block;
@@ -1416,7 +1416,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     color: #fff
 }
 
@@ -1446,7 +1446,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog-pagination .page-item.active .page-link {
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     border-color: transparent;
     color: #fff
 }
@@ -1468,7 +1468,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .blog-pagination .page-link:hover {
     color: #fff;
     text-decoration: none;
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     border-color: #eee
 }
 
@@ -1616,7 +1616,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .comments-area .btn-reply:hover {
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #15e4fd);
     color: #fff !important
 }
 
@@ -1711,7 +1711,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .into-icon i {
     font-size: 20px;
-    color: #ff0066;
+    color: #ff0000;
     margin-right: 20px
 }
 
@@ -1788,30 +1788,30 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .sample-text-area p b {
     font-weight: bold;
-    color: #ff0066
+    color: #ff0000
 }
 
 .sample-text-area p i {
-    color: #ff0066;
+    color: #ff0000;
     font-style: italic
 }
 
 .sample-text-area p sup {
-    color: #ff0066;
+    color: #ff0000;
     font-style: italic
 }
 
 .sample-text-area p sub {
-    color: #ff0066;
+    color: #ff0000;
     font-style: italic
 }
 
 .sample-text-area p del {
-    color: #ff0066
+    color: #ff0000
 }
 
 .sample-text-area p u {
-    color: #ff0066
+    color: #ff0000
 }
 
 .elements_button .title_color {
@@ -1955,12 +1955,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .link-border {
     background: transparent;
-    border: 1px solid #ff0066;
-    color: #ff0066
+    border: 1px solid #ff0000;
+    color: #ff0000
 }
 
 .link-border:before {
-    background: #ff0066
+    background: #ff0000
 }
 
 .radius {
@@ -3232,7 +3232,7 @@ h6 {
 
 .template-btn {
     color: #fff;
-    background: linear-gradient(to right, #ff0066, #15e4fd);
+    background: linear-gradient(to right, #ff0000, #f8a4a4);
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     font-size: 12px;
@@ -3264,7 +3264,7 @@ h6 {
 }
 
 .news-btn:hover {
-    color: #ff0066
+    color: #ff0000
 }
 
 .news-btn:hover i {
@@ -3312,7 +3312,7 @@ h6 {
 }
 
 .section-top .style-change {
-    color: #ff0066;
+    color: #ff0000;
     font-style: italic
 }
 
@@ -3321,7 +3321,7 @@ h6 {
 }
 
 .section-top2 span {
-    color: #ff0066
+    color: #ff0000
 }
 
 .item-padding {
