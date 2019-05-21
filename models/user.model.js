@@ -6,6 +6,24 @@ var userSchema = new Schema({
     info: {
         firstname: String,
         lastname: String,
+        numbercmnd: String,
+        address: String,
+        gender: Number,
+        dob: Date,
+        imgcmnn: String,
+        createdAt: { type: Date, default: Date.now },
+        updateAt: {
+            type: Date,
+            default: null
+        },
+        deleteAt: {
+            type: Date,
+            default: null
+        },
+        status: {
+            type: Date,
+            default: 1
+        }
     },
     local: {
         email: {
@@ -16,7 +34,7 @@ var userSchema = new Schema({
         },
         isAdmin: {
             type: Boolean,
-            default: true
+            default: false
         }
 
     }

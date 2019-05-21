@@ -33,7 +33,8 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret : 'secured_key',
     resave : false,
-    saveUninitialized : false
+    saveUninitialized : false,
+    maxAge:1000*60*2
 }))
 app.use(validator());
 app.use(flash());
@@ -43,7 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 
-app.use('/admin',auth.checkIsAdmin, adminRouter);
+app.use('/admin', auth.checkIsAdmin, adminRouter);
 app.use('/user', userRouter); // cấu hình mấy trang liên quan use
 
 app.use('/', auth.checkAuthentication, bookingRouter);

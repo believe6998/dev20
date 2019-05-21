@@ -9,7 +9,7 @@ module.exports = {
         }
     },
     checkIsAdmin: function (req, res, next){
-        if(req.isAuthenticated() && req.user.isisAdmin){
+        if(req.isAuthenticated() && req.user.local.isAdmin){
             next();
         } else{
             res.send("Không có quyền truy cập ! thêm isAdmin = true trong db để test nhá @@");
