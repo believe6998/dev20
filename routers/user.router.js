@@ -23,6 +23,11 @@ router.route('/register')
         // form values
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
+        var numbercmnd = req.body.numbercmnd;
+        var address = req.body.address;
+        var gender = req.body.gender;
+        var dob = req.body.dob;
+        var imgcmnn = req.body.imgcmnn;
         var email = req.body.email;
         var password = req.body.password;
 
@@ -36,6 +41,11 @@ router.route('/register')
         var errors = req.validationErrors();
 
         dataForm = {
+            numbercmnd : numbercmnd,
+            address : address,
+            gender : gender,
+            dob : dob,
+            imgcmnn : imgcmnn,
             firstname: firstname,
             lastname: lastname,
             email: email,
@@ -77,4 +87,10 @@ router.route('/login')
         failureFlash: true
     }))
 
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
 module.exports = router;
+

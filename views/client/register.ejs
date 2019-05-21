@@ -18,14 +18,44 @@
                     </div>  
                     <div class="panel-body">
                      <% if(hasErrors) { %>
-    <div class="alert alert-danger">
-       <% messages.forEach(function(message){ %>
-          <span><%=  message %></span>
-       <% })%>    
-    </div>
- <% } %>
+                        <div class="alert alert-danger">
+                        <% messages.forEach(function(message){ %>
+                            <span><%=  message %></span>
+                            <% })%>    
+                        </div>
+                    <% } %>
                         <form role="form" action="/user/register" method="post">
                             <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="numbercmnd" value="<%= dataForm.numbercmnd %>" class="form-control input-sm" placeholder="So cmnn">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="address" value="<%= dataForm.address %>" class="form-control input-sm" placeholder="address">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <select name="gender"  value="<%= dataForm.gender %>" class="form-control input-sm" placeholder="gender">
+                                            <option value="male">male</option>
+                                            <option value="famale">famale</option>
+                                            <option value="other">other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                       <input type="date" name="dob" value="<%= dataForm.dob %>" class="form-control input-sm" placeholder="dob">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="imgcmnn" value="<%= dataForm.imgcmnn %>" class="form-control input-sm" placeholder="imgcmnn">
+                                    </div>
+                                </div>
+
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <input type="text" name="firstname" id="firstname" value="<%= dataForm.firstname %>" class="form-control input-sm" placeholder="First Name">
@@ -54,7 +84,6 @@
                                     </div>
                                 </div>
                             </div>
-								
                             <input type="submit" value="Register" class="btn btn-info btn-block">			    		
                         </form>
                     </div>

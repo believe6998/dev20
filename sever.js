@@ -33,7 +33,8 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret : 'secured_key',
     resave : false,
-    saveUninitialized : false
+    saveUninitialized : false,
+    maxAge:1000*60*2
 }))
 app.use(validator());
 app.use(flash());
@@ -43,10 +44,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 
-app.use('/admin', adminRouter);
-app.use('/user', userRouter); // cấu hình mấy trang liên quan user
+app.use('/admin', auth.checkIsAdmin, adminRouter);
+app.use('/user', userRouter); // cấu hình mấy trang liên quan use
 
 app.use('/', auth.checkAuthentication, bookingRouter);
+app.use('/', auth.checkAuthentication, function(req,res){
+    res.render('client/home')
+});
 app.use('/', auth.checkAuthentication, function(req,res){
     res.render('client/home')
 });

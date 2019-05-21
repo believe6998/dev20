@@ -25,8 +25,7 @@ passport.use('local.register', new LocalStrategy({
       return done(err)
     }
     if (user) {
-      console.log('email đã tồn tại')
-      req.flash('dataForm', dataForm)
+      // req.flash('dataForm', dataForm)
       return done(null, false, {
         message: 'Email đã được sử dụng, vui lòng chọn email khác'
       })
@@ -47,7 +46,6 @@ passport.use('local.register', new LocalStrategy({
     });
   })
 }));
-
 
 /* Passport login */
 passport.use('local.login', new LocalStrategy({
