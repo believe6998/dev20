@@ -1,0 +1,52 @@
+<%- include('./layouts/head',
+{title: 'Home admin page'})%>
+
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 pt-4">Booking</h1>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header ">
+        <strong><a href="/Admin/User/Create">Thêm bản ghi</a></strong>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>UserId</th>
+                    <th>DoctorId</th>
+                    <th>Khung Giờ</th>
+                    <th>Ngày tạo</th>
+                    <th>Ngày sửa</th>
+                    <th>Ngày xóa</th>
+                    <th>Trạng thái</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 0; i < listBooking.length; i++) { %>
+                <tr>
+                    <td>   <%= listBooking[i].userId %></td>
+                    <td>   <%= listBooking[i].doctorId %></td>
+                    <td>   <%= listBooking[i].time %></td>
+                    <td>   <%= listBooking[i].createdAt%></td>
+                    <td>   <%= listBooking[i].updateAt %></td>
+                    <td>   <%= listBooking[i].deleteAt %></td>
+                    <td>   <%= listBooking[i].status %></td>
+                    <td><a href="booking/<%= listBooking[i].id %>/edit" class="text-decoration-none">Sửa</a></td>
+                    <td><a href="booking/<%= listBooking[i].id %>/delete" class="text-decoration-none">Xóa</a></td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('./layouts/footer',
+) %>
