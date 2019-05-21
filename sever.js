@@ -23,9 +23,11 @@ app.use(express.static('public'));
 
 app.use('/admin', adminRouter);
 app.use('/user', userRouter); // cấu hình mấy trang liên quan user
-
 app.use('/', bookingRouter);
 
+app.get('/',function (req,res) {
+    res.render('client/home');
+})
 
 // Trả lỗi 404 k tồn tại trang!!!!!
 app.use(function (req, res, next) {
