@@ -65,8 +65,10 @@ router.route('/login')
 
         res.render('client/login', {
             messages: messages,
-            hasErrors: messages.length > 0
+            hasErrors: messages.length > 0,
+            user:req.user
         });
+
     })
     .post(passport.authenticate('local.login', {
         successRedirect: '/',
