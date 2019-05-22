@@ -20,6 +20,19 @@ router.get('/record/form', function(req, res){
 });
 router.post("/record/save", recordController.createRecord);
 
+//time
+router.get('/time/form', function(req, res){	
+    res.render('admin/formTime');	
+})	
+router.post("/time/save",timeController.createTime);	
+router.get("/time", timeController.listTimeAdmin);	
+
+ router.get('/doctor_time/form', function(req, res){	
+    res.render('admin/formDoctorTime');	
+})	
+router.post("/doctor_time/save",doctorTimeController.createDoctorTime);	
+router.get("/doctor_time", doctorTimeController.listDoctorTime);
+
 // doctor create
 router.route('/doctor/create')
     .get(doctorController.generateDoctorCreate)
