@@ -3,7 +3,8 @@ const controller = require('../controllers/admin.controller');
 const bookingController = require('../controllers/booking.controller');
 const recordController = require('../controllers/record.controller');
 const doctorController = require('../controllers/doctor.controller');
-
+var timeController = require('../controllers/time.controller');	
+var doctorTimeController = require('../controllers/doctorTime.controller');
 
 router.get('/', function(req, res){
     res.render('admin/home');
