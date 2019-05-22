@@ -118,12 +118,10 @@
             <!--</div>-->
             <h3>Time</h3>
             <div class="row">
-                <div class="time-item genric-btn danger-border radius">7:00-9:00</div>
-                <div class="time-item genric-btn danger-border radius">1:00-3:00</div>
-                <div class="time-item genric-btn danger-border radius">1:00-3:00</div>
-                <div class="time-item genric-btn danger-border radius">3:00-5:00</div>
-                <div class="time-item genric-btn danger-border radius">5:00-7:00</div>
-                <div class="time-item genric-btn danger-border radius">7:00-9:00</div>
+                <% for (var i = 0; i < listTime.length; i++) { %>
+                    <div class="time-item genric-btn danger-border radius"> <%= listTime[i].time %></div>
+                <% } %>
+
             </div>
             <button type="submit" class="template-btn">Book</button>
         </div>

@@ -1,12 +1,11 @@
 const express = require('express');
 var controller = require('../controllers/booking.controller');
-
+var timeController = require('../controllers/time.controller');
 var router = express.Router();
 
 
-router.get('/booking', function (req, res) {
-    res.render('client/booking', { user: req.user });
-})
+
+router.get("/booking", timeController.listTime);
 
 router.post('/booking/send', controller.sendBooking);
 
