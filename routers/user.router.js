@@ -47,7 +47,8 @@ router.route('/register')
             res.render('client/register.ejs', {
                 messages: messages,
                 hasErrors: messages.length > 0,
-                dataForm: dataForm
+                dataForm: dataForm,
+                user:req.user
             });
         } else {
             next()
@@ -65,8 +66,10 @@ router.route('/login')
 
         res.render('client/login', {
             messages: messages,
-            hasErrors: messages.length > 0
+            hasErrors: messages.length > 0,
+            user:req.user
         });
+
     })
     .post(passport.authenticate('local.login', {
         successRedirect: '/',
