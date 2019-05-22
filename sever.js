@@ -19,8 +19,12 @@ var auth = require('./middleware/auth.middleware');
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
+<<<<<<< HEAD
+var otherRouter = require('./routers/other.router');
+=======
 var otherrRouter = require('./routers/other.router');
 var recordRouter = require('./routers/record.router');
+>>>>>>> 39d660cf42083838825ea847ae8b73692b24c697
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -32,7 +36,7 @@ app.use(session({
     secret : 'secured_key',
     resave : false,
     saveUninitialized : false,
-    maxAge:1000*60*2
+    maxAge:1000*60*60
 }))
 app.use(validator());
 app.use(flash());
@@ -44,7 +48,7 @@ app.use(express.static('public'));
 
 app.use('/admin/', auth.checkIsAdmin, adminRouter);
 app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
-app.use(otherrRouter);
+app.use(otherRouter);
 app.use(bookingRouter);
 app.use(recordRouter);
 // app.use('/', auth.checkAuthentication, bookingRouter);
