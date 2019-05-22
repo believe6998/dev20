@@ -1,31 +1,43 @@
-var Booking = require("../models/booking.model");
-var Time = require("../models/time.model");
+var Record = require("../models/record.model");
 var mongoose = require('mongoose');
 var myid = mongoose.Types.ObjectId;
 
-exports.sendBooking = function (req, res) {
-    var booking = new Booking({
-        userId : req.user.id,
-        doctorId: req.body.doctorId,
-        timeId: req.body.timeId,
-        createdAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
+exports.createRecord = function (req, res) {
+    var record = new Record({
+        userId: req.user.id,
+        typeOfDisease: req.body.typeOfDisease,
+        drug: req.body.drug,
+        createAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
         updateAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         deleteAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         status: '1',
     });
-    booking.save();
+    record.save();
     // res.redirect(req.get('referer'));
-    res.send(req.body.time + "-" + req.body.doctorId);
+    res.send(req.body.typeOfDisease + "-" + req.body.drug);
 };
 
-exports.listBooking = function (req, res) {
-    Booking.find({}, function (err, list) {
-        res.render("admin/booking.ejs", {
-            "listBooking": list
+exports.listRecordAdmin = function (req, res) {
+    Record.find({}, function (err, list) {
+        res.render("admin/record.ejs", {
+            "listRecord": list
         });
     });
 
 };
+
+exports.listRecord = function (req, res) {
+
+    Record.find({userId: req.user.id}, function (err, list) {
+        res.render("client/record.ejs", {
+            user: req.user,
+            "listRecord": list
+        });
+
+    });
+
+};
+
 
 exports.deleteRegister = function (req, res) {
     Booking.findByIdAndRemove(  myid(req.params.id), function(err) {
@@ -48,5 +60,4 @@ exports.updateRegister = function (req, res) {
         }
     });
 };
-
 

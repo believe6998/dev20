@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var bookingSchema = new Schema({
+var recordSchema = new Schema({
     userId: {type: String},
-    doctorId: {type: String},
-    timeId: {type: String},
+    typeOfDisease: {type: String},
+    drug: {type: String},
     createAt: {type: String},
     updateAt: {type: String},
     deleteAt: {type: String},
@@ -12,4 +12,4 @@ var bookingSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("Booking", bookingSchema);
+module.exports = mongoose.model("Record", recordSchema);

@@ -3,12 +3,17 @@ const bcrypt = require('bcrypt')
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
+    doctor: {
+        specialties: String,
+        desciption: String
+    },
     info: {
         firstname: String,
         lastname: String,
+        img: String,
         numbercmnd: String,
         address: String,
-        gender: Number,
+        gender: String,
         dob: Date,
         imgcmnn: String,
         createdAt: { type: Date, default: Date.now },
@@ -21,7 +26,7 @@ var userSchema = new Schema({
             default: null
         },
         status: {
-            type: Date,
+            type: Number,
             default: 1
         }
     },
@@ -31,12 +36,15 @@ var userSchema = new Schema({
         },
         password: {
             type: String
-        },
-        isAdmin: {
-            type: Boolean,
-            default: false
         }
-
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    isDoctor: {
+        type: Boolean,
+        default: false
     }
 });
 
