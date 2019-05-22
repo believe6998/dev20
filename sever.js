@@ -54,7 +54,7 @@ app.use(fileUpload());
 
 app.use('/admin/', auth.checkIsAdmin, adminRouter);
 app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
-app.use(otherrRouter);
+app.use(otherRouter);
 app.use(bookingRouter);
 app.use(recordRouter);
 // app.use('/', auth.checkAuthentication, bookingRouter);
