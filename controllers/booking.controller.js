@@ -1,11 +1,13 @@
 var Booking = require("../models/booking.model");
+var Time = require("../models/time.model");
 var mongoose = require('mongoose');
 var myid = mongoose.Types.ObjectId;
 
 exports.sendBooking = function (req, res) {
     var booking = new Booking({
+        userId : req.user.id,
         doctorId: req.body.doctorId,
-        time: req.body.time,
+        timeId: req.body.timeId,
         createdAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
         updateAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         deleteAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
@@ -24,8 +26,6 @@ exports.listBooking = function (req, res) {
     });
 
 };
-
-
 
 exports.deleteRegister = function (req, res) {
     Booking.findByIdAndRemove(  myid(req.params.id), function(err) {
@@ -48,4 +48,5 @@ exports.updateRegister = function (req, res) {
         }
     });
 };
+
 

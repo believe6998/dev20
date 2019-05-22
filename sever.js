@@ -1,7 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose'); 
+const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -19,7 +19,12 @@ var auth = require('./middleware/auth.middleware');
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
+<<<<<<< HEAD
 var otherRouter = require('./routers/other.router');
+=======
+var otherrRouter = require('./routers/other.router');
+var recordRouter = require('./routers/record.router');
+>>>>>>> 39d660cf42083838825ea847ae8b73692b24c697
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -45,7 +50,7 @@ app.use('/admin/', auth.checkIsAdmin, adminRouter);
 app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
 app.use(otherRouter);
 app.use(bookingRouter);
-
+app.use(recordRouter);
 // app.use('/', auth.checkAuthentication, bookingRouter);
 // app.use('/', auth.checkAuthentication, function(req,res){
 //     res.render('client/home')
