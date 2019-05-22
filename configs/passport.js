@@ -1,6 +1,7 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var User = require('../models/user.model');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('../models/user.model');
+const cloudinary = require('cloudinary');
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -30,29 +31,44 @@ passport.use('local.register', new LocalStrategy({
                 message: 'Email has been used, please choose another email!'
             })
         }
-        console.log(req.body);
-
-        var newUser = new User();
+        let newUser = new User();
         newUser.info.firstname = req.body.firstname;
         newUser.info.lastname = req.body.lastname;
         newUser.info.lastname = req.body.lastname;
-        newUser.info.img = req.body.img;
         newUser.info.numbercmnd = req.body.numbercmnd;
         newUser.info.address = req.body.address;
         newUser.info.gender = req.body.gender;
         newUser.info.dob = req.body.dob;
-        newUser.info.imgcmnn = req.body.imgcmnn;
         newUser.local.email = email;
         newUser.local.password = newUser.encryptPassword(password);
-
-        if (req.body.role.localeCompare("doctor")) {
+        let role = req.body.role;
+        if (role.localeCompare("doctor") === 0) {
             newUser.doctor.specialties = req.body.specialties;
             newUser.doctor.desciption = req.body.desciption;
             newUser.isDoctor = true;
         }
-
-        if (req.body.role.localeCompare("admin")) newUser.isAdmin = true;
-
+        if (role.localeCompare("admin") === 0) {
+            newUser.isAdmin = true;
+        }
+        let sync = false;
+        if (req.files && req.files.img !== undefined) {
+            let fileGettingUploaded = req.files.img.data;
+            cloudinary.uploader
+                .upload_stream(function (result, error) {
+                    if (error) {
+                        //xu ly loi
+                        return done(error);
+                    } else {
+                        newUser.info.img =  result.url;
+                    }
+                })
+                .end(fileGettingUploaded);
+            sync = true;
+        } else {
+            newUser.info.img = "https://www.touchtaiwan.com/images/default.jpg";
+            sync = true;
+        }
+        while(!sync){}
         newUser.save(function (err, result) {
             if (err) {
                 return done(err);
@@ -60,7 +76,6 @@ passport.use('local.register', new LocalStrategy({
                 return done(null, newUser);
             }
         });
-
     })
 }));
 
