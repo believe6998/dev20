@@ -6,10 +6,19 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
+const cloudinary = require('cloudinary');
+const fileUpload = require('express-fileupload');
 
 mongoose.connect('mongodb://admin:admin123@ds157946.mlab.com:57946/dev20', {useNewUrlParser: true});
 mongoose.connection.on('error', function(err) {
     console.log('Lỗi kết nối đến CSDL: ' + err);
+});
+
+//config cloudinary
+cloudinary.config({
+    cloud_name: 'dyi6c1dgi',
+    api_key: '679713918597911',
+    api_secret: 't3xiT15hfyCeBMMqZCM1YrVH3Hc'
 });
 
 require('./configs/passport');
@@ -19,12 +28,8 @@ var auth = require('./middleware/auth.middleware');
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
-<<<<<<< HEAD
-var otherRouter = require('./routers/other.router');
-=======
 var otherrRouter = require('./routers/other.router');
 var recordRouter = require('./routers/record.router');
->>>>>>> 39d660cf42083838825ea847ae8b73692b24c697
 
 const app = express();
 var post = process.env.PORT || 3002;
@@ -36,19 +41,20 @@ app.use(session({
     secret : 'secured_key',
     resave : false,
     saveUninitialized : false,
-    maxAge:1000*60*60
-}))
+    maxAge:1000*60*2
+}));
 app.use(validator());
 app.use(flash());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : false}))
+app.use(bodyParser.urlencoded({extended : false}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
+app.use(fileUpload());
 
 app.use('/admin/', auth.checkIsAdmin, adminRouter);
 app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
-app.use(otherRouter);
+app.use(otherrRouter);
 app.use(bookingRouter);
 app.use(recordRouter);
 // app.use('/', auth.checkAuthentication, bookingRouter);
@@ -68,7 +74,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render(err.message);
 });
-
 
 app.listen(post, () => console.log(`Chạy thành Công ở cổng ${post}`));
 
