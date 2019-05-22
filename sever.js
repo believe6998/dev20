@@ -16,12 +16,10 @@ require('./configs/passport');
 
 var auth = require('./middleware/auth.middleware');
 
-
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
 var otherrRouter = require('./routers/other.router');
-
 
 const app = express();
 var post = process.env.PORT || 3002;

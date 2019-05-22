@@ -30,6 +30,7 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
+                        
                         <li class="menu-active"><a href="index.html">Home</a></li>
                         <li><a href="departments.html">departments</a></li>
                         <li><a href="doctors.html">doctors</a></li>
@@ -40,12 +41,26 @@
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li class="menu-has-children"><a href="">Image</a>
+                        <% if(user){%>
+                        <li class="menu-has-children">
+                        <a href="">
+                        <div class="img-account-box">
+                           <img class="img-account" src="<%= user.info.img%>"/>
+                        </div>
+                        <%= user.info.lastname%></a>
                             <ul>
-                                <li><a href="blog-home.html">Sign in</a></li>
-                                <li><a href="blog-details.html">Sign up</a></li>
+                                <li><a href="user/logout">Sign out</a></li>
+                                <li><a href="">some thing</a></li>
                             </ul>
                         </li>
+                        <%}else{%>
+                        <li class="menu-has-children"><a href="">Account</a>
+                            <ul>
+                                <li><a href="user/login">Sign in</a></li>
+                                <li><a href="user/register">Sign up</a></li>
+                            </ul>
+                        </li>
+                        <%}%>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
