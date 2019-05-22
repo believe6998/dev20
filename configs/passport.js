@@ -25,15 +25,24 @@ passport.use('local.register', new LocalStrategy({
       return done(err)
     }
     if (user) {
-      // req.flash('dataForm', dataForm)
+      req.flash('dataForm', dataForm)
+
       return done(null, false, {
         message: 'Email đã được sử dụng, vui lòng chọn email khác'
       })
     }
+    console.log(req.body)
 
     var newUser = new User();
     newUser.info.firstname = req.body.firstname;
     newUser.info.lastname = req.body.lastname;
+    newUser.info.lastname = req.body.lastname;
+    newUser.info.img = req.body.img;
+    newUser.info.numbercmnd = req.body.numbercmnd;
+    newUser.info.address = req.body.address;
+    newUser.info.gender = req.body.gender;
+    newUser.info.dob = req.body.dob;
+    newUser.info.imgcmnn = req.body.imgcmnn;
     newUser.local.email = email;
     newUser.local.password = newUser.encryptPassword(password);
 
