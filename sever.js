@@ -28,7 +28,7 @@ var auth = require('./middleware/auth.middleware');
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
-var otherrRouter = require('./routers/other.router');
+var otherRouter = require('./routers/other.router');
 var recordRouter = require('./routers/record.router');
 
 const app = express();
