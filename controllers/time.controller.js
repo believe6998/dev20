@@ -1,6 +1,7 @@
 var Booking = require("../models/booking.model");
 var Time = require("../models/time.model");
 var User = require("../models/user.model");
+var DoctorTime = require("../models/doctorTime.model");
 var mongoose = require('mongoose');
 var myid = mongoose.Types.ObjectId;
 
@@ -24,9 +25,8 @@ exports.listBook = function (req, res) {
             });
         });
     });
-
-
 };
+
 
 
 exports.createTime = function (req, res) {
