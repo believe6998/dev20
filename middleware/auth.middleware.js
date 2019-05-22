@@ -11,7 +11,7 @@ module.exports = {
         }
     },
     checkIsAdmin: function (req, res, next){
-        if(req.isAuthenticated() && req.user.local.isAdmin){
+        if(req.isAuthenticated() && req.user.isAdmin){
             next();
         } else{
             res.render("errHandle/403Err.ejs");
