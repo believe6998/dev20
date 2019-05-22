@@ -47,8 +47,7 @@ router.route('/register')
             res.render('client/register.ejs', {
                 messages: messages,
                 hasErrors: messages.length > 0,
-                dataForm: dataForm,
-                user:req.user
+                dataForm: dataForm
             });
         } else {
             next()
