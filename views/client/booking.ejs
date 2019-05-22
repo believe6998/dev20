@@ -16,100 +16,26 @@
 </section>
 <!-- Banner Area End -->
 <section class="contact-form section-padding">
-    <form action="" method="post" action="/booking/send">
+    <form  method="post" action="/booking/send">
         <div class="container">
             <h3>Doctor</h3>
             <div id="owl-demo" class="owl-carousel owl-theme">
+                <% for (var i = 0; i < listDoctor.length; i++) { %>
                 <div class="doctor-item">
                     <div class="doctor-img">
                         <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
                     </div>
+                    <span class="d-none" id="doctorId"><%= listDoctor[i].id %></span>
                     <div class="content-area">
                         <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
+                            <h3><%= listDoctor[i].info.lastname %></h3>
                             <h6>sr. faculty data science</h6>
                         </div>
                     </div>
                 </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctor-item">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="content-area">
-                        <div class="doctor-name text-center">
-                            <h3>ethel davis</h3>
-                            <h6>sr. faculty data science</h6>
-                        </div>
-                    </div>
-                </div>
+                    <% } %>
             </div>
-
+            <input type="text" name="doctorId" id="doctorValue" class="d-none" value="">
             <!--<div class="customNavigation">-->
             <!--<a class="btn hehe">Previous</a>-->
             <!--<a class="btn hihi">Next</a>-->
@@ -120,9 +46,11 @@
             <div class="row">
                 <% for (var i = 0; i < listTime.length; i++) { %>
                     <div class="time-item genric-btn danger-border radius"> <%= listTime[i].time %></div>
+                    <div class="d-none"> <%= listTime[i].id %></div>
                 <% } %>
-
             </div>
+            <input type="text" id="timeValue" value="" name="timeId" class="d-none">
+            <input type="text" name="userId" value="" id="idValue" class="d-none">
             <button type="submit" class="template-btn">Book</button>
         </div>
     </form>
@@ -130,13 +58,16 @@
 
 <script>
     $('.time-item').click(function () {
-        var value = $(this).text();
+        var value = $(this).next().text()
         $('#timeValue').val(value);
+
     });
-    $('.doctor-item').click(function () {
-        var value = $(this).text();
+    $('.doctor-img').click(function () {
+        var value = $(this).next().text();
+        console.log(value)
         $('#doctorValue').val(value);
     });
+    $('#idValue').val($('#userId').text());
     var owl = $("#owl-demo");
 
     owl.owlCarousel({

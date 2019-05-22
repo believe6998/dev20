@@ -3,7 +3,7 @@ var controller = require('../controllers/admin.controller');
 var bookingController = require('../controllers/booking.controller');
 var recordController = require('../controllers/record.controller');
 var timeController = require('../controllers/time.controller');
-
+var doctorTimeController = require('../controllers/doctorTime.controller');
 router.get('/', function(req, res){
     res.render('admin/home');
 })
@@ -25,6 +25,11 @@ router.get('/time/form', function(req, res){
 router.post("/time/save",timeController.createTime);
 router.get("/time", timeController.listTimeAdmin);
 
+router.get('/doctor_time/form', function(req, res){
+    res.render('admin/formDoctorTime');
+})
+router.post("/doctor_time/save",doctorTimeController.createDoctorTime);
+router.get("/doctor_time", doctorTimeController.listDoctorTime);
 
 
 module.exports = router;
