@@ -1,3 +1,4 @@
+
 <!-- Header Area Starts -->
 <header class="header-area">
     <div class="header-top">
@@ -47,11 +48,12 @@
                         <div class="img-account-box">
                            <img class="img-account" src="<%= user.info.img%>"/>
                         </div>
+                           <span class="d-none" id="userId" ><%= user.id%></span>
                         <%= user.info.lastname%></a>
                             <ul>
                                 <li><a href="/record">Medical record</a></li>
                                 <li><a href="user/logout">Sign out</a></li>
-                            </ul>   
+                            </ul>
                         </li>
                         <%}else{%>
                         <li class="menu-has-children"><a href="">Account</a>
@@ -61,6 +63,7 @@
                             </ul>
                         </li>
                         <%}%>
+                        
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -68,3 +71,4 @@
     </div>
 </header>
 <!-- Header Area End -->
+

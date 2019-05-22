@@ -5,11 +5,10 @@ var router = express.Router();
 
 
 
-router.get("/booking", timeController.listTime);
-
-router.post('/booking/send', controller.sendBooking);
+router.get("/booking", timeController.listBook);
 
 
+router.post("/booking/send", controller.sendBooking);
 
 
 module.exports = router;

@@ -5,8 +5,9 @@ var myid = mongoose.Types.ObjectId;
 
 exports.sendBooking = function (req, res) {
     var booking = new Booking({
+        userId : req.user.id,
         doctorId: req.body.doctorId,
-        time: req.body.time,
+        timeId: req.body.timeId,
         createdAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
         updateAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         deleteAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
