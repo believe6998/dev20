@@ -4,10 +4,10 @@ var myid = mongoose.Types.ObjectId;
 
 exports.createRecord = function (req, res) {
     var record = new Record({
-        userId: req.body.userId,
+        userId: req.user.id,
         typeOfDisease: req.body.typeOfDisease,
         drug: req.body.drug,
-        createdAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
+        createAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') ,
         updateAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         deleteAt:  new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
         status: '1',
@@ -17,15 +17,26 @@ exports.createRecord = function (req, res) {
     res.send(req.body.typeOfDisease + "-" + req.body.drug);
 };
 
-exports.listRecord = function (req, res) {
+exports.listRecordAdmin = function (req, res) {
     Record.find({}, function (err, list) {
-        res.render("client/record.ejs", {
+        res.render("admin/record.ejs", {
             "listRecord": list
         });
     });
 
 };
 
+exports.listRecord = function (req, res) {
+
+    Record.find({userId: req.user.id}, function (err, list) {
+        res.render("client/record.ejs", {
+            user: req.user,
+            "listRecord": list
+        });
+
+    });
+
+};
 
 
 exports.deleteRegister = function (req, res) {

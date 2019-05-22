@@ -1,4 +1,5 @@
 var Booking = require("../models/booking.model");
+var Time = require("../models/time.model");
 var mongoose = require('mongoose');
 var myid = mongoose.Types.ObjectId;
 
@@ -25,8 +26,6 @@ exports.listBooking = function (req, res) {
 
 };
 
-
-
 exports.deleteRegister = function (req, res) {
     Booking.findByIdAndRemove(  myid(req.params.id), function(err) {
         if (err)
@@ -48,4 +47,5 @@ exports.updateRegister = function (req, res) {
         }
     });
 };
+
 
