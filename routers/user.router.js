@@ -21,13 +21,15 @@ router.route('/register')
         res.render('client/register', {
             messages: messages,
             hasErrors: messages.length > 0,
-            dataForm: dataForm
+            dataForm: dataForm,
+            user: req.user
+            
         });
     })
 
     .post(function (req, res, next) {
         // form values
-        
+
         //check form validation
         req.checkBody("firstname", "firstname is required").notEmpty();
         req.checkBody("lastname", "lastname is required").notEmpty();
@@ -66,7 +68,7 @@ router.route('/login')
         res.render('client/login', {
             messages: messages,
             hasErrors: messages.length > 0,
-            user:req.user
+            user: req.user
         });
 
     })
