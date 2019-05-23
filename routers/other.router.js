@@ -17,5 +17,8 @@ router.get('/departments',function (req,res) {
 router.get('/doctors',function (req,res) {
     res.render('client/doctors', { 'user': req.user })
 })
+router.get('/blog/1',function (req,res) {
+    res.render('client/blog1', { 'user': req.user })
+})
 
 module.exports = router; 
