@@ -1,0 +1,184 @@
+<%- include('./layouts/head', {title: 'Home admin page'}) %>
+<%
+ var role = 'doctor';
+ var status;
+    if (obj.info.status == 1){
+        status = 'Active';
+    } else if (obj.info.status == 0) {
+        status = 'Deleted'
+    }
+ %>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 pt-4"><%= header %></h1>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <form action="/admin/doctor/edit/<%= obj.id %>" method="post" enctype="multipart/form-data">
+                <% if(hasErrors) { %>
+                    <div class="alert alert-danger">
+                        <% messages.forEach(function(message){ %>
+                            <span><%= message %></span>
+                        <% }) %>
+                    </div>
+                <% } %>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Attribute name</th>
+                            <th>Properties</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Image</th>
+                            <td><div style="width: 100px; height: 100px; background-image: url('<%= obj.info.img %>'); background-size: cover"></div></td>
+                            <td>
+                                <div class="form-group">
+                                    <label class="form-control input-sm"><i class="fa fa-image"></i>Input image
+                                        <input type="file" name="img" style="display: none">
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Id</th>
+                            <td><%=obj.id%></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><%=obj.local.email%></td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" value="" class="form-control input-sm" placeholder="Email Address">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>First Name</th>
+                            <td><%=obj.info.firstname%></td>
+                            <td>
+                                <div class="form-group">
+                                    <input name="firstname" id="firstname" value="<%= dataForm.firstname %>" class="form-control input-sm" type="text" placeholder="First name">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td><%=obj.info.lastname%></td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" name="lastname" id="lastname" value="<%= dataForm.lastname %>" class="form-control input-sm" placeholder="Last Name">
+                                </div>
+                            </td>
+                        </tr>
+                        <% if (role.localeCompare('doctor') == 1){ %>
+                            <tr>
+                                <th>Specialties</th>
+                                <td><%= obj.doctor.specialties%></td>
+                                <td>
+                                    <div class="form-group">
+                                        <select name="specialties" class="form-control input-sm">
+                                            <option value="<%= dataForm.specialties %>" selected disabled hidden>Specialties</option>
+                                            <option value="entSpecialist">Ent Specialist</option>
+                                            <option value="ophthalmology">Ophthalmology</option>
+                                            <option value="laboratoryDepartment">Laboratory Department</option>
+                                            <option value="proctology">Proctology</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td><%= obj.doctor.desciption%></td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="desciption" value="<%= dataForm.desciption %>" class="form-control input-sm" placeholder="Description">
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                        <tr>
+                            <th>Identity No</th>
+                            <td><%=obj.info.numbercmnd%></td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" name="numbercmnd" value="<%= dataForm.numbercmnd %>" class="form-control input-sm" placeholder="Identity card number">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Adress</th>
+                            <td><%= obj.info.address %></td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" name="address" value="<%= dataForm.address %>" class="form-control input-sm" placeholder="Address">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td><%=obj.info.gender%></td>
+                            <td>
+                                <div class="form-group">
+                                    <select name="gender" class="form-control input-sm">
+                                        <option value="<%= dataForm.gender %>" selected disabled hidden>Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Date Of Birth</th>
+                            <td><%=obj.info.dob%></td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="date" name="dob" value="<%= dataForm.dob %>" class="form-control input-sm" placeholder="dob">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><%= status %></td>
+                            <td>
+                                <div class="form-group">
+                                    <select name="status" class="form-control input-sm">
+                                        <option value="<%= dataForm.specialties %>" selected disabled hidden>Status</option>
+                                        <option value="0">Delete</option>
+                                        <option value="1">Active</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Create At</th>
+                            <td><%=obj.info.createdAt%></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Update At</th>
+                            <td><%=obj.info.updateAt%></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Delete At</th>
+                            <td><%=obj.info.deleteAt%></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input style="display: none" name="role" value="doctor">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary float-right">Update</button>
+                </div>
+            </form>
+            <!-- End Table -->
+        </div>
+    </div>
+</div>
+
+<%- include('./layouts/footer', ) %>
