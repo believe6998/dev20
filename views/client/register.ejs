@@ -17,23 +17,32 @@
                                 <% })%>
                             </div>
                         <% } %>
-                        <form role="form" action="/user/register" method="post">
+                        <form id="register-form" role="form" action="/user/register" method="post">
                             <input type="file" name="img" style="display: none">
                             <div class="left">
-                                <input name="firstname" id="firstname" value="<%= dataForm.firstname %>" type="text" placeholder="First name"  required>
+                                <input name="firstname" id="firstname" value="<%= dataForm.firstname %>" type="text" placeholder="First name">
                             </div>
                             <div class="right">
                                 <input type="text" name="lastname" id="lastname" value="<%= dataForm.lastname %>" class="" placeholder="Last Name">
                             </div>
                             <div class="row">
-                                <div class="col-6">
-                                    <div class="default-select" id="default-select">
+                                <div class="col-3">
+                                    <div style="width: 50px" class="default-select" id="default-select">
                                         <select name="gender" value="<%= dataForm.gender %>" placeholder="gender">
                                             <option value="male">Male</option>
                                             <option value="famale">Female</option>
                                             <option value="other">Other</option>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="col-5">
+                                    <input type="date" name="dob" value="<%= dataForm.dob %>" style="width: 300px" placeholder="Birthday">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input style="width: 300px; margin-right: 20px" type="text" name="numbercmnd" value="<%= dataForm.numbercmnd %>"
+                                           class="" placeholder="Number identity">
                                 </div>
                                 <div class="col-6">
                                     <div class="input-image">
@@ -42,14 +51,6 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="left">
-                                <input type="text" name="numbercmnd" value="<%= dataForm.numbercmnd %>"
-                                       class="" placeholder="So cmnn">
-                            </div>
-                            <div class="right">
-                                <input type="date" name="dob" value="<%= dataForm.dob %>" class="" placeholder="dob">
                             </div>
                             <input type="text" name="address" value="<%= dataForm.address %>"
                                    class="" placeholder="Address">

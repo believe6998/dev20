@@ -3115,8 +3115,9 @@ h6 {
 .default-select .nice-select {
     border: none;
     border-radius: 0px;
-    height: 40px;
+    height: 50px;
     background: #fff;
+    padding-top: 7px;
     padding-left: 20px;
     padding-right: 40px
 }

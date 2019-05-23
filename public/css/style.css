@@ -36,10 +36,11 @@
     padding: 180px 0 300px;
 }
 .form-area input{
-    width: 100%;
+    width: 400px;
     border: 1px solid #f9f9f9;
     padding: 12px 20px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    display: block;
 }
 .form-area .input-image {
     background-color: white;
@@ -47,6 +48,9 @@
     border: 1px solid #f9f9f9;
     padding: 10px 20px 5px;
     margin-bottom: 20px;
+}
+.input-rieng {
+    width:280px;
 }
 .err-area {
     padding: 150px 0 450px;
@@ -65,4 +69,11 @@
     line-height: 40px;
     text-transform: uppercase;
     font-weight: 500
+}
+.error {
+    /*width: 400%;*/
+    color: #ff0000;
+}
+#login-form label, #register-form label {
+    display: block;
 }
