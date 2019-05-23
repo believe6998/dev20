@@ -1,5 +1,5 @@
 <%- include('./layouts/head',
-{title: 'Home Page'}
+{title: 'Sign In'}
 ) %>
 <%- include('./layouts/header') %>
 <!-- Banner Area Starts -->
@@ -12,11 +12,11 @@
                     <% if(hasErrors) { %>
                         <div class="alert alert-danger">
                             <% messages.forEach(function(message){ %>
-                                <span><%=  message %></span>
-                            <% })%>
+                                <span><%= message %></span>
+                            <% }) %>
                         </div>
                     <% } %>
-                    <form action="/user/login" method="POST">
+                    <form id="login-form" action="/user/login" method="POST">
                         <input type="email" class="" id="email" placeholder="Enter email" name="email">
                         <input type="password" class="" id="password" placeholder="Enter password" name="password">
                         <button type="submit" class="template-btn">Login</button>
