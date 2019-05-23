@@ -57,6 +57,7 @@ app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
 app.use(otherRouter);
 app.use(bookingRouter);
 app.use(recordRouter);
+
 // app.use('/', auth.checkAuthentication, bookingRouter);
 // app.use('/', auth.checkAuthentication, function(req,res){
 //     res.render('client/home')

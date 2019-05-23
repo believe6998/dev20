@@ -35,13 +35,14 @@
                         <li class="menu-active"><a href="/">Home</a></li>
                         <li><a href="departments.html">departments</a></li>
                         <li><a href="doctors.html">doctors</a></li>
-                        <li class="menu-has-children"><a href="">Pages</a>
-                            <ul>
-                                <li><a href="about.html">about us</a></li>
-                                <li><a href="elements.html">elements</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <!--<li class="menu-has-children"><a href="">Pages</a>-->
+                            <!--<ul>-->
+                                <!--<li><a href="about.html">about us</a></li>-->
+                                <!--<li><a href="elements.html">elements</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         <% if(user){%>
                         <li class="menu-has-children">
                         <a href="">
@@ -51,7 +52,7 @@
                         <%= user.info.lastname%></a>
                             <ul>
                                 <li><a href="/user/logout">Sign out</a></li>
-                                <li><a href="">some thing</a></li>
+                                <li><a href="#">some thing</a></li>
                             </ul>
                         </li>
                         <%}else{%>

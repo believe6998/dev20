@@ -482,7 +482,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-    padding: 400px 0 350px;
+    padding: 300px 0 350px;
     background-color: #b0b0b0;
     background-image: url("../images/banner-bg.jpg");
     background-repeat: no-repeat;
@@ -2401,7 +2401,7 @@ h6 {
     min-width: 800px
 }
 
-.progress-table .serial {
+.progress-table .disease  {
     width: 11.83%;
     padding-left: 30px
 }
@@ -2411,6 +2411,9 @@ h6 {
 }
 
 .progress-table .visit {
+    width: 19.74%
+}.
+ progress-table .visit {
     width: 19.74%
 }
 
@@ -2423,7 +2426,7 @@ h6 {
     display: flex
 }
 
-.progress-table .table-head .serial, .progress-table .table-head .country, .progress-table .table-head .visit, .progress-table .table-head .percentage {
+.progress-table .table-head .disease, .progress-table .table-head .country, .progress-table .table-head .visit, .progress-table .table-head .percentage {
     color: #222222;
     line-height: 40px;
     text-transform: uppercase;
@@ -2436,7 +2439,7 @@ h6 {
     display: flex
 }
 
-.progress-table .table-row .serial, .progress-table .table-row .country, .progress-table .table-row .visit, .progress-table .table-row .percentage {
+.progress-table .table-row .disease, .progress-table .table-row .country, .progress-table .table-row .visit, .progress-table .table-row .percentage {
     display: flex;
     align-items: center
 }
