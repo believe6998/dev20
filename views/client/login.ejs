@@ -1,35 +1,31 @@
 <%- include('./layouts/head',
-{title: 'Home Page'}
+{title: 'Sign In'}
 ) %>
 <%- include('./layouts/header') %>
 <!-- Banner Area Starts -->
-<section class="banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <h4>Caring for better life</h4>
-                <h1>Leading the way in medical excellence</h1>
-                <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning over gathered brought.</p>
-                <a href="" class="template-btn mt-3">take appointment</a>
-            </div>
-            <div class="contact-form form-area">
-                <h2>Login form</h2>
-                <% if(hasErrors) { %>
-                    <div class="alert alert-danger">
-                        <% messages.forEach(function(message){ %>
-                            <span><%=  message %></span>
-                        <% })%>
-                    </div>
-                <% } %>
-                <form action="/user/login" method="POST">
-                    <input type="email" class="" id="email" placeholder="Enter email" name="email">
-                    <input type="password" class="" id="password" placeholder="Enter password" name="password">
-                    <button type="submit" class="template-btn">Login</button>
-                </form>
+<div class="login-area">
+    <section class="banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="contact-form form-area">
+                    <h2>Login</h2>
+                    <% if(hasErrors) { %>
+                        <div class="alert alert-danger">
+                            <% messages.forEach(function(message){ %>
+                                <span><%= message %></span>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                    <form id="login-form" action="/user/login" method="POST">
+                        <input type="email" class="" id="email" placeholder="Enter email" name="email">
+                        <input type="password" class="" id="password" placeholder="Enter password" name="password">
+                        <button type="submit" class="template-btn">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <!-- Banner Area End -->
 <%- include('./layouts/footer',
 ) %>

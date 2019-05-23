@@ -28,7 +28,7 @@ var auth = require('./middleware/auth.middleware');
 var adminRouter = require('./routers/admin.router');
 var bookingRouter = require('./routers/booking.router');
 var userRouter = require('./routers/user.router');
-var otherrRouter = require('./routers/other.router');
+var otherRouter = require('./routers/other.router');
 var recordRouter = require('./routers/record.router');
 
 const app = express();
@@ -57,6 +57,7 @@ app.use('/user/', userRouter); // cấu hình mấy trang liên quan use
 app.use(otherRouter);
 app.use(bookingRouter);
 app.use(recordRouter);
+
 // app.use('/', auth.checkAuthentication, bookingRouter);
 // app.use('/', auth.checkAuthentication, function(req,res){
 //     res.render('client/home')

@@ -1,0 +1,123 @@
+<%- include('./layouts/head',
+{title: 'Booking'}
+) %>
+<%- include('./layouts/header',
+) %>
+<!-- Banner Area Starts -->
+<section class="banner-area other-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Booking</h1>
+                <a href="index.html">Home</a> <span>|</span> <a href="about.html">About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Area End -->
+<section class="contact-form section-padding">
+    <form method="post" action="/booking/send">
+        <div class="container">
+            <h3>Doctor</h3>
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <% for (var i = 0; i < listDoctor.length; i++) { %>
+                    <a href="/booking/<%= listDoctor[i].id %> ">
+                        <div class="doctor-item">
+                            <div class="doctor-img">
+                                <img src="<%= listDoctor[i].info.img %>" alt="" class="img-fluid">
+                            </div>
+                            <div class="content-area">
+                                <div class="doctor-name text-center">
+                                    <h3><%= listDoctor[i].info.lastname %></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <% } %>
+            </div>
+            <!--<div class="customNavigation">-->
+            <!--<a class="btn hehe">Previous</a>-->
+            <!--<a class="btn hihi">Next</a>-->
+            <!--<a class="btn play">Autoplay</a>-->
+            <!--<a class="btn stop">Stop</a>-->
+            <!--</div>-->
+            <h3>Time</h3>
+            <div class="row">
+                <% for (var i = 0; i < listDoctorTime.length; i++) { %>
+                    <span class="id-item d-none"><%= listDoctorTime[i].id %></span>
+                    <div class="time-item genric-btn danger-border radius"> <%= listDoctorTime[i].timeId %></div>
+                    <span class="d-none"><%= listDoctorTime[i].timeId %></span>
+                    <span class="status d-none"><%= listDoctorTime[i].status %></span>
+                    <span id="doctorId" class="d-none"><%= listDoctorTime[i].doctorId %></span>
+                <% } %>
+            </div>
+            <input type="text" id="timeValue" value="" name="timeId" class="d-none">
+            <input type="text" name="doctorId" id="doctorValue" class="d-none" value="">
+            <input type="text" name="id" id="idValue" value="" class="">
+            <button type="submit" class="template-btn">Book</button>
+        </div>
+    </form>
+</section>
+
+<script>
+    $('.time-item').click(function () {
+        var value = $(this).next().text();
+        $('#timeValue').val(value);
+        var id = $(this).prev().text();
+        $('#idValue').val(id);
+    });
+    var doctorId = $('#doctorId').text();
+    var id = $('#doctorId').text();
+    $('#doctorValue').val(doctorId);
+
+
+    $('.status').each(function () {
+        var rs = $(this).text();
+        if (rs === '1') {
+            $(this).prev().prev().removeClass('danger-border').attr("disabled", true);
+        }
+    });
+
+    $('.time-item').text(function (index) {
+        switch (index) {
+            case 0:
+                return "8:00 - 8:30";
+            case 1:
+                return "8:30 - 9:00";
+            case 2:
+                return "9:00 - 9:30";
+            case 3:
+                return "9:30 - 10:00";
+            case 4:
+                return "10:00 - 10:30";
+            case 5:
+                return "11:30 - 11:00";
+        }
+    });
+
+    var owl = $("#owl-demo");
+
+    owl.owlCarousel({
+        items: 4, //10 items above 1000px browser width
+        itemsDesktop: [1000, 4], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+        itemsTablet: [600, 1], //2 items between 600 and 0
+        itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
+    });
+
+    // // Custom Navigation Events
+    // $(".hehe").click(function(){
+    //     owl.trigger('owl.next');
+    // })
+    // $(".hihi").click(function(){
+    //     owl.trigger('owl.prev');
+    // })
+    // $(".play").click(function(){
+    //     owl.trigger('owl.play',1000); //owl.play event accept autoPlay speed as second parameter
+    // })
+    // $(".stop").click(function(){
+    //     owl.trigger('owl.stop');
+    // })
+</script>
+<%- include('./layouts/footer',
+) %>
