@@ -6,7 +6,7 @@ $('#login-form').validate({
         },
         'password': {
             required: true,
-            minlength: 6,
+            // minlength: 6,
         }
     },
     messages: {
@@ -16,7 +16,7 @@ $('#login-form').validate({
         },
         'password': {
             required: 'Please fill password.',
-            minlength: 'Password is too short.',
+            // minlength: 'Password is too short.',
         }
     }
 });
@@ -24,15 +24,15 @@ $('#register-form').validate({
     rules: {
         'firstname': {
             required: true,
-            firstname: true
+            // firstname: true
         },
         'lastname': {
             required: true,
-            lastname: true
+            // lastname: true
         },
         'address': {
             required: true,
-            address: true
+            // address: true
         },
         'email': {
             required: true,
@@ -40,11 +40,11 @@ $('#register-form').validate({
         },
         'numbercmnd': {
             required: true,
-            email: true
+            // numbercmnd: true
         },
         'password': {
             required: true,
-            minlength: 6,
+            // minlength: 6,
         },
         'password_confirmation': {
             equalTo: '[name="password"]'
@@ -69,7 +69,7 @@ $('#register-form').validate({
         },
         'password': {
             required: 'Please fill password.',
-            minlength: 'Password is too short.',
+            // minlength: 'Password is too short.',
         },
         'password_confirmation': {
             equalTo: 'Password not same.'
