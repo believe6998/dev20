@@ -1,0 +1,87 @@
+<%- include('./layouts/head', {title: 'Home admin page'}) %>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 pt-4"><%= headerPage %></h1>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+
+<!--            <div class="row">-->
+<!--                <div class="col-sm-12 col-md-6">-->
+<!--                    <div class="dataTables_length" id="dataTable_length">-->
+<!--                        <label>Show-->
+<!--                            <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">-->
+<!--                                <option value="10">1</option>-->
+<!--                                <option value="25">2</option>-->
+<!--                                <option value="50">3</option>-->
+<!--                            </select>-->
+<!--                            entries-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <!-- Table -->
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Specialties</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 0; i < list.length; i++) { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td style="width: 100px; height: 100px; background-image: url('<%= list[i].info.img %>'); background-size: cover"></td>
+                        <td><%= list[i].local.email %></td>
+                        <td><%= list[i].info.firstname %></td>
+                        <td><%= list[i].info.lastname %></td>
+                        <td><%= list[i].doctor.specialties %></td>
+                        <td>
+                            <a href="/admin/doctor/delete/<%= list[i].id %>" class="text-decoration-none">Xóa</a>
+                            <a href="/admin/list/detail/<%= list[i].id %>" class="text-decoration-none">Chi tiết</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+            <!-- End Table -->
+            <!-- Paging -->
+
+            <div class="row m-0">
+                <div class="col-sm-12 col-md-5">
+                    <div id="dataTable_info" role="status" aria-live="polite">
+                        Showing <%= paginateIfo.startRecord %> to <%= paginateIfo.endRecord %> of <%= total %> entries
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7 p-0">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                        <ul class="pagination float-right">
+                            <li class="paginate_button page-item previous <%= paginateIfo.statusPrevious %>" id="dataTable_previous">
+                                <a href="/admin/account/list?page=<%= paginateIfo.previousPage %>" aria-controls="dataTable" tabindex="0" class="page-link">Previous</a>
+                            </li>
+                            <% for(var i = paginateIfo.startPage; i <= paginateIfo.endPage; i++) { %>
+                                <li class="paginate_button page-item <% if (paginateIfo.page == (i)){ %><%= 'active' %><% } %>">
+                                    <a href="/admin/account/list?page=<%= i %>" class="page-link"><%= i %></a>
+                                </li>
+                            <% } %>
+                            <li class="paginate_button page-item next <%= paginateIfo.statusNext %>" id="dataTable_next">
+                                <a href="/admin/account/list?page=<%= paginateIfo.nextPage %>" aria-controls="dataTable" tabindex="0" class="page-link">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- EndPaging -->
+        </div>
+    </div>
+</div>
+
+<%- include('./layouts/footer', ) %>
