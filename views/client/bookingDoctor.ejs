@@ -21,12 +21,11 @@
             <h3>Doctor</h3>
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <% for (var i = 0; i < listDoctor.length; i++) { %>
-                    <a href="/booking/<%= listDoctor[i].id %>">
+                    <a href="/booking/<%= listDoctor[i].id %> ">
                         <div class="doctor-item">
                             <div class="doctor-img">
                                 <img src="<%= listDoctor[i].info.img %>" alt="" class="img-fluid">
                             </div>
-                            <span class="d-none" id="doctorId"><%= listDoctor[i].id %></span>
                             <div class="content-area">
                                 <div class="doctor-name text-center">
                                     <h3><%= listDoctor[i].info.lastname %></h3>
@@ -36,7 +35,6 @@
                     </a>
                 <% } %>
             </div>
-            <input type="text" name="doctorId" id="doctorValue" class="d-none" value="">
             <!--<div class="customNavigation">-->
             <!--<a class="btn hehe">Previous</a>-->
             <!--<a class="btn hihi">Next</a>-->
@@ -45,12 +43,17 @@
             <!--</div>-->
             <h3>Time</h3>
             <div class="row">
-                <% for (var i = 0; i < listTime.length; i++) { %>
-                    <div class="time-item genric-btn danger-border radius"> <%= listTime[i].time %></div>
-                    <div class="d-none"> <%= listTime[i].id %></div>
+                <% for (var i = 0; i < listDoctorTime.length; i++) { %>
+                    <span class="id-item d-none"><%= listDoctorTime[i].id %></span>
+                    <div class="time-item genric-btn danger-border radius"> <%= listDoctorTime[i].timeId %></div>
+                    <span class="d-none"><%= listDoctorTime[i].timeId %></span>
+                    <span class="status d-none"><%= listDoctorTime[i].status %></span>
+                    <span id="doctorId" class="d-none"><%= listDoctorTime[i].doctorId %></span>
                 <% } %>
             </div>
             <input type="text" id="timeValue" value="" name="timeId" class="d-none">
+            <input type="text" name="doctorId" id="doctorValue" class="d-none" value="">
+            <input type="text" name="id" id="idValue" value="" class="">
             <button type="submit" class="template-btn">Book</button>
         </div>
     </form>
@@ -58,14 +61,38 @@
 
 <script>
     $('.time-item').click(function () {
-        var value = $(this).next().text()
-        $('#timeValue').val(value);
-
-    });
-    $('.doctor-img').click(function () {
         var value = $(this).next().text();
-        console.log(value)
-        $('#doctorValue').val(value);
+        $('#timeValue').val(value);
+        var id = $(this).prev().text();
+        $('#idValue').val(id);
+    });
+    var doctorId = $('#doctorId').text();
+    var id = $('#doctorId').text();
+    $('#doctorValue').val(doctorId);
+
+
+    $('.status').each(function () {
+        var rs = $(this).text();
+        if (rs === '1') {
+            $(this).prev().prev().removeClass('danger-border').attr("disabled", true);
+        }
+    });
+
+    $('.time-item').text(function (index) {
+        switch (index) {
+            case 0:
+                return "8:00 - 8:30";
+            case 1:
+                return "8:30 - 9:00";
+            case 2:
+                return "9:00 - 9:30";
+            case 3:
+                return "9:30 - 10:00";
+            case 4:
+                return "10:00 - 10:30";
+            case 5:
+                return "11:30 - 11:00";
+        }
     });
 
     var owl = $("#owl-demo");

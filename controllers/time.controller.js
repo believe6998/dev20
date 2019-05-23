@@ -24,8 +24,6 @@ exports.listBook = function (req, res) {
             });
         });
     });
-
-
 };
 
 
